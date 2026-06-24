@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sehat</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="#home">Sehat</a>
+        <button class="nav-link" type="button" data-open-about>About</button>
+      </header>
+
+      <main class="main-content" id="home">
+        <section class="hero" aria-labelledby="hero-title">
+          <p>Sehat</p>
+          <h1 id="hero-title">Health metrics, simplified.</h1>
+        </section>
+
+        <section class="calculator-grid" aria-label="Health calculators">
+          <button class="calc-card" type="button" data-calculator="bmi">
+            BMI
+          </button>
+          <button class="calc-card" type="button" disabled>Body Fat</button>
+          <button class="calc-card" type="button" disabled>Ideal Weight</button>
+          <button class="calc-card" type="button" disabled>Calories</button>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal" id="bmiModal" aria-hidden="true">
+      <div class="modal__backdrop"></div>
+      <div
+        class="modal__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="bmiModalTitle"
+      >
+        <button
+          class="modal__close"
+          type="button"
+          aria-label="Close BMI calculator"
+          data-close-modal
+        >
+          &times;
+        </button>
+        <div class="modal__content">
+          <section class="modal__panel" aria-label="BMI inputs">
+            <h2 class="modal__title" id="bmiModalTitle">BMI Calculator</h2>
+
+            <div class="form-group">
+              <label for="weightInput">Weight (kg)</label>
+              <input
+                id="weightInput"
+                name="weight"
+                type="number"
+                min="0"
+                step="0.1"
+                inputmode="decimal"
+                placeholder="70"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="heightInput">Height (cm)</label>
+              <input
+                id="heightInput"
+                name="height"
+                type="number"
+                min="0"
+                step="0.1"
+                inputmode="decimal"
+                placeholder="175"
+              />
+            </div>
+          </section>
+
+          <aside class="modal__panel" aria-live="polite">
+            <p class="result-label">BMI</p>
+            <p class="result-value" id="bmiValue">—</p>
+            <p class="result-category" id="bmiCategory">Enter your details</p>
+            <p class="result-note">Results update instantly as you type.</p>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="aboutModal" aria-hidden="true">
+      <div class="modal__backdrop"></div>
+      <div
+        class="modal__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="aboutModalTitle"
+      >
+        <button
+          class="modal__close"
+          type="button"
+          aria-label="Close about dialog"
+          data-close-modal
+        >
+          &times;
+        </button>
+        <div class="about-copy">
+          <h2 class="modal__title" id="aboutModalTitle">About Sehat</h2>
+          <p>
+            Sehat is a lightweight health app designed for fast, clear answers.
+          </p>
+          <p>
+            The experience stays simple so you can calculate your BMI without
+            distraction.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
