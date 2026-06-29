@@ -197,7 +197,8 @@ button {
   font-size: 0.95rem;
 }
 
-.form-group input {
+.form-group input,
+.form-group select {
   width: 100%;
   border: 1px solid var(--border);
   border-radius: 0.65rem;
@@ -206,9 +207,42 @@ button {
   color: var(--text);
 }
 
-.form-group input:focus {
+.form-group input:focus,
+.form-group select:focus {
   outline: 2px solid rgba(17, 17, 17, 0.12);
   outline-offset: 2px;
+}
+
+.gender-group {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.gender-option {
+  position: relative;
+}
+
+.gender-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.gender-option span {
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.7rem 0.8rem;
+  text-align: center;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.gender-option input:checked + span {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
 }
 
 .result-label {
