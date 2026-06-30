@@ -268,6 +268,68 @@ button {
   font-size: 0.9rem;
 }
 
+.result-method {
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--border);
+}
+
+.nutrition-results {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 0.9rem;
+}
+
+.nutrition-result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 0.65rem;
+  background: var(--surface-strong);
+}
+
+.nutrition-result-label {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.nutrition-result-value {
+  font-weight: 600;
+}
+
+.guidance-list {
+  margin: 0.35rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.guidance-list li + li {
+  margin-top: 0.35rem;
+}
+
+.info-card {
+  margin-top: 1rem;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: var(--surface-strong);
+}
+
+.info-card__title {
+  margin: 0 0 0.3rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.info-card__text {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
 .about-copy p {
   margin: 0 0 0.6rem;
   color: var(--muted);

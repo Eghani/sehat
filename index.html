@@ -26,8 +26,16 @@
           <button class="calc-card" type="button" data-calculator="body-fat">
             Body Fat
           </button>
-          <button class="calc-card" type="button" disabled>Ideal Weight</button>
-          <button class="calc-card" type="button" disabled>Calories</button>
+          <button
+            class="calc-card"
+            type="button"
+            data-calculator="ideal-weight"
+          >
+            Ideal Weight
+          </button>
+          <button class="calc-card" type="button" data-calculator="nutrition">
+            Daily Nutrition
+          </button>
         </section>
       </main>
     </div>
@@ -82,8 +90,48 @@
           <aside class="modal__panel" aria-live="polite">
             <p class="result-label">BMI</p>
             <p class="result-value" id="bmiValue">—</p>
-            <p class="result-category" id="bmiCategory">Enter your details</p>
-            <p class="result-note">Results update instantly as you type.</p>
+            <p class="result-category" id="bmiCategory">
+              Enter your height and weight to calculate your Body Mass Index.
+            </p>
+            <p class="result-label">Healthy BMI Range</p>
+            <p class="result-note" id="bmiHealthyRange">—</p>
+
+            <div class="result-method">
+              <p class="result-label">Method Used</p>
+              <p class="result-note">WHO BMI Classification</p>
+              <p class="result-note" id="bmiMethodText">
+                The World Health Organization (WHO) BMI Classification is one of
+                the most widely used methods for assessing body weight relative
+                to height.
+              </p>
+            </div>
+
+            <div class="result-method">
+              <p class="result-label">What does this mean?</p>
+              <p class="result-note" id="bmiUnderstanding">
+                BMI is a screening tool that estimates body size.
+              </p>
+            </div>
+
+            <div class="info-card">
+              <p class="info-card__title" id="bmiGuidanceTitle">
+                Recommended Focus
+              </p>
+              <ul class="guidance-list" id="bmiGuidanceList">
+                <li>Maintain healthy habits</li>
+                <li>Exercise regularly</li>
+                <li>Eat a balanced diet</li>
+              </ul>
+            </div>
+
+            <div class="info-card">
+              <p class="info-card__title">Important</p>
+              <p class="info-card__text">
+                BMI is an estimate and does not account for muscle mass, bone
+                density, body composition, age, or ethnicity. It should be used
+                as a general screening tool rather than a medical diagnosis.
+              </p>
+            </div>
           </aside>
         </div>
       </div>
@@ -172,15 +220,309 @@
           </section>
 
           <aside class="modal__panel" aria-live="polite">
-            <p class="result-label">Body Fat</p>
+            <p class="result-label">Body Fat Percentage</p>
             <p class="result-value" id="bodyFatValue">—</p>
             <p class="result-category" id="bodyFatCategory">
-              Enter your details
+              Enter your details to estimate your body fat percentage.
             </p>
-            <p class="result-note" id="bodyFatNote">
-              This is an estimate based on BMI, age, and gender. It is not a
-              medical diagnosis.
+            <p class="result-label">Healthy Body Fat Range</p>
+            <p class="result-note" id="bodyFatRange">—</p>
+
+            <div class="result-method">
+              <p class="result-label">Method Used</p>
+              <p class="result-note">Deurenberg Formula</p>
+              <p class="result-note" id="bodyFatMethodText">
+                The Deurenberg Formula estimates body fat percentage using BMI,
+                age, and biological sex.
+              </p>
+            </div>
+
+            <div class="result-method">
+              <p class="result-label">What does this mean?</p>
+              <p class="result-note" id="bodyFatUnderstanding">
+                Body fat is an estimate and may differ from direct measurement
+                methods.
+              </p>
+            </div>
+
+            <div class="info-card">
+              <p class="info-card__title" id="bodyFatGuidanceTitle">
+                Recommended Focus
+              </p>
+              <ul class="guidance-list" id="bodyFatGuidanceList">
+                <li>Maintain healthy habits</li>
+                <li>Regular exercise</li>
+                <li>Balanced nutrition</li>
+              </ul>
+            </div>
+
+            <div class="info-card">
+              <p class="info-card__title">Important</p>
+              <p class="info-card__text">
+                Body fat percentage estimated using formulas may differ from
+                direct measurement methods such as DEXA Scan, Hydrostatic
+                Weighing, or Skinfold Measurements. Use this estimate as a
+                general guideline.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="idealWeightModal" aria-hidden="true">
+      <div class="modal__backdrop"></div>
+      <div
+        class="modal__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="idealWeightModalTitle"
+      >
+        <button
+          class="modal__close"
+          type="button"
+          aria-label="Close ideal weight calculator"
+          data-close-modal
+        >
+          &times;
+        </button>
+        <div class="modal__content">
+          <section class="modal__panel" aria-label="Ideal weight inputs">
+            <h2 class="modal__title" id="idealWeightModalTitle">
+              Ideal Weight Calculator
+            </h2>
+
+            <div class="form-group">
+              <label>Gender</label>
+              <div class="gender-group" role="radiogroup" aria-label="Gender">
+                <label class="gender-option">
+                  <input
+                    type="radio"
+                    name="idealWeightGender"
+                    value="male"
+                    checked
+                  />
+                  <span>Male</span>
+                </label>
+                <label class="gender-option">
+                  <input type="radio" name="idealWeightGender" value="female" />
+                  <span>Female</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="heightInputIdealWeight">Height (cm)</label>
+              <input
+                id="heightInputIdealWeight"
+                name="height"
+                type="number"
+                min="1"
+                max="299"
+                step="0.1"
+                inputmode="decimal"
+                placeholder="175"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="currentWeightInput"
+                >Current Weight (kg, optional)</label
+              >
+              <input
+                id="currentWeightInput"
+                name="currentWeight"
+                type="number"
+                min="0"
+                step="0.1"
+                inputmode="decimal"
+                placeholder="70"
+              />
+            </div>
+          </section>
+
+          <aside class="modal__panel" aria-live="polite">
+            <p class="result-label">Estimated Ideal Weight</p>
+            <p class="result-value" id="idealWeightValue">—</p>
+            <p class="result-category" id="idealWeightRange">
+              Enter your height to calculate your estimated ideal weight.
             </p>
+            <p class="result-category" id="idealWeightDifference" hidden></p>
+
+            <div class="result-method">
+              <p class="result-label">Method Used</p>
+              <p class="result-note">Robinson Formula (1983)</p>
+              <p class="result-note">
+                This estimate is calculated using the Robinson Formula (1983), a
+                commonly used method for estimating ideal body weight based on
+                height and biological sex.
+              </p>
+            </div>
+
+            <div class="info-card">
+              <p class="info-card__title">Important</p>
+              <p class="info-card__text">
+                Ideal weight formulas provide general estimates. Your overall
+                health depends on many factors including body composition,
+                muscle mass, genetics, nutrition, physical activity, and
+                lifestyle. This calculator should be used as a general guide
+                rather than a strict health target.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="nutritionModal" aria-hidden="true">
+      <div class="modal__backdrop"></div>
+      <div
+        class="modal__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="nutritionModalTitle"
+      >
+        <button
+          class="modal__close"
+          type="button"
+          aria-label="Close daily nutrition calculator"
+          data-close-modal
+        >
+          &times;
+        </button>
+        <div class="modal__content">
+          <section class="modal__panel" aria-label="Daily nutrition inputs">
+            <h2 class="modal__title" id="nutritionModalTitle">
+              Daily Nutrition Calculator
+            </h2>
+
+            <div class="form-group">
+              <label>Gender</label>
+              <div class="gender-group" role="radiogroup" aria-label="Gender">
+                <label class="gender-option">
+                  <input
+                    type="radio"
+                    name="nutritionGender"
+                    value="male"
+                    checked
+                  />
+                  <span>Male</span>
+                </label>
+                <label class="gender-option">
+                  <input type="radio" name="nutritionGender" value="female" />
+                  <span>Female</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="ageInputNutrition">Age (years)</label>
+              <input
+                id="ageInputNutrition"
+                name="age"
+                type="number"
+                min="10"
+                max="120"
+                step="1"
+                inputmode="numeric"
+                placeholder="30"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="weightInputNutrition">Weight (kg)</label>
+              <input
+                id="weightInputNutrition"
+                name="weight"
+                type="number"
+                min="0"
+                step="0.1"
+                inputmode="decimal"
+                placeholder="70"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="heightInputNutrition">Height (cm)</label>
+              <input
+                id="heightInputNutrition"
+                name="height"
+                type="number"
+                min="0"
+                step="0.1"
+                inputmode="decimal"
+                placeholder="175"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="activityInputNutrition">Activity Level</label>
+              <select id="activityInputNutrition" name="activityLevel">
+                <option value="1.2">Sedentary</option>
+                <option value="1.375">Lightly Active</option>
+                <option value="1.55" selected>Moderately Active</option>
+                <option value="1.725">Very Active</option>
+                <option value="1.9">Extra Active</option>
+              </select>
+            </div>
+          </section>
+
+          <aside class="modal__panel" aria-live="polite">
+            <p class="result-label">Daily Nutrition</p>
+            <p class="result-value" id="nutritionMaintenance">—</p>
+            <p class="result-category" id="nutritionSummary">
+              Enter your details to calculate your daily nutrition requirements.
+            </p>
+
+            <div class="nutrition-results">
+              <div class="nutrition-result-item">
+                <span class="nutrition-result-label">Weight Loss</span>
+                <span class="nutrition-result-value" id="nutritionLoss">—</span>
+              </div>
+              <div class="nutrition-result-item">
+                <span class="nutrition-result-label">Maintain</span>
+                <span class="nutrition-result-value" id="nutritionMaintain"
+                  >—</span
+                >
+              </div>
+              <div class="nutrition-result-item">
+                <span class="nutrition-result-label">Weight Gain</span>
+                <span class="nutrition-result-value" id="nutritionGain">—</span>
+              </div>
+            </div>
+
+            <div class="result-method">
+              <p class="result-label">Recommended Daily Intake</p>
+              <p class="result-note">
+                Protein <span id="nutritionProtein">—</span>
+              </p>
+              <p class="result-note">
+                Water <span id="nutritionWater">—</span>
+              </p>
+              <p class="result-note">
+                Fiber <span id="nutritionFiber">—</span>
+              </p>
+            </div>
+
+            <div class="result-method">
+              <p class="result-label">Method Used</p>
+              <p class="result-note">Mifflin–St Jeor Equation</p>
+              <p class="result-note">
+                The Mifflin–St Jeor Equation is one of the most widely used
+                formulas for estimating daily calorie needs and resting energy
+                expenditure in healthy adults.
+              </p>
+            </div>
+
+            <div class="info-card">
+              <p class="info-card__title">Important</p>
+              <p class="info-card__text">
+                Your daily calorie requirements depend on age, body composition,
+                health conditions, and activity level. These values are
+                estimates and should be used as general guidance rather than
+                medical advice.
+              </p>
+            </div>
           </aside>
         </div>
       </div>
