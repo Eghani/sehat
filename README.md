@@ -70,14 +70,14 @@ Nothing fancy. No framework wars fought here. If you were expecting React, sorry
 
 ## 🔬 Scientific Methods
 
-*Yes, it's actually evidence-based.*
+_Yes, it's actually evidence-based._
 
-| Calculation | Method |
-|---|---|
-| BMI | Standard body-mass index formula |
-| Body Fat | Deurenberg Formula |
-| Ideal Weight | Robinson Formula (1983) |
-| Daily Nutrition | Mifflin–St Jeor Equation |
+| Calculation     | Method                           |
+| --------------- | -------------------------------- |
+| BMI             | Standard body-mass index formula |
+| Body Fat        | Deurenberg Formula               |
+| Ideal Weight    | Robinson Formula (1983)          |
+| Daily Nutrition | Mifflin–St Jeor Equation         |
 
 Real formulas. Not vibes.
 
@@ -133,6 +133,7 @@ Calm spacing, quiet color, a clear path from input to result. Readability over n
 <td width="50%" valign="top">
 
 **✅ Shipped**
+
 - BMI calculator
 - Body-fat calculator
 - Ideal-weight calculator
@@ -143,6 +144,7 @@ Calm spacing, quiet color, a clear path from input to result. Readability over n
 <td width="50%" valign="top">
 
 **🔜 Coming Eventually**
+
 - Learn Hub
 - Trusted Resources
 - Additional calculators
